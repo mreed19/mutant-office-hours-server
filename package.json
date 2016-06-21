@@ -2,10 +2,22 @@
   "name": "mutant-office-hours-server",
   "version": "0.1.0",
   "description": "a node server for connecting to firebase and sending texts and emails",
-  "main": "aoo.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mreed19/mutant-office-hours-server.git"
+  },
   "author": "Michael Reed",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mreed19/mutant-office-hours-server/issues"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "firebase": "^3.0.5",
+    "twilio": "^2.9.1"
+  }
 }

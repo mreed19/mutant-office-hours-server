@@ -1,0 +1,11 @@
+{
+  "name": "mutant-office-hours-server",
+  "version": "0.1.0",
+  "description": "a node server for connecting to firebase and sending texts and emails",
+  "main": "aoo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Reed",
+  "license": "ISC"
+}

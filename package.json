@@ -17,6 +17,7 @@
     "url": "https://github.com/mreed19/mutant-office-hours-server/issues"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "firebase": "^3.0.5",
     "twilio": "^2.9.1"

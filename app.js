@@ -50,12 +50,13 @@ emailsRef.on('child_added', function(snapshot) {
   var email = snapshot.val();
   mailgunClient.messages().send({
     from: 'Xavier\'s School for Gifted Youngsters <mailgun@' + process.env.MAILGUN_DOMAIN + '>',
-    to: 'michael.reed315@gmail.com',
+    to: email,
     subject: 'Welcome to X-Men school staff!',
     text: 'Welcome message goes here'
   }, function(error, body) {
-    console.log('Body:\n' + body);
-    console.log('Error:\n' + error);
+    if (error) {
+      console.log(error);
+    }
   });
 });
 

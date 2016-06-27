@@ -23,10 +23,7 @@ var rootRef = firebase.database().ref();
 var twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 
 // Authenticate with Mailgun
-var mailgunClient = mailgun({
-  apiKey: process.env.MAILGUN_API_KEY,
-  domain: process.env.MAILGUN_DOMAIN
-});
+var mailgunClient = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
 
 // Listen for new texts being added
 var textsRef = rootRef.child('texts');
@@ -46,14 +43,14 @@ textsRef.on('child_added', function(snapshot) {
 // Listen for new emails being added
 var emailsRef = rootRef.child('emails');
 emailsRef.on('child_added', function(snapshot) {
-  console.log('user added');
   var email = snapshot.val();
   mailgunClient.messages().send({
     from: 'Xavier\'s School for Gifted Youngsters <mailgun@' + process.env.MAILGUN_DOMAIN + '>',
-    to: email,
-    subject: 'Welcome to X-Men school staff!',
-    text: 'Welcome message goes here'
+    to: email.emailAddress,
+    subject: 'Welcome to Mutant Office Hours!',
+    text: 'Thanks for signing up!'
   }, function(error, body) {
+    console.log(body);
     if (error) {
       console.log(error);
     }
